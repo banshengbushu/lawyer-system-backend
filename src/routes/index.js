@@ -1,7 +1,9 @@
-const router = require('koa-router')()
+const router = require('koa-router')();
 
-module.exports = function (app) {
-    router.get('/test', async (req, res) => {
-        res.send('Hello world');
-    });
-};
+router.post('/login', async (ctx, next) => {
+    const mobile = ctx.request.body.mobile;
+
+    ctx.body = `<div>${mobile} Login successfully</div>`
+});
+
+module.exports = router;
