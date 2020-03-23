@@ -2,9 +2,9 @@ const getUser = require('../service/user');
 
 class UserController {
     static getUser(ctx) {
-        const {mobile} = ctx.request.body;
+        const {mobile, password} = ctx.request.body;
 
-        return getUser(mobile).then((res) => {
+        return getUser(mobile, password).then((res) => {
             if(res) {
                 ctx.status = 200;
                 return ctx.body = {status: [{status: 200, username: res.username}]};
